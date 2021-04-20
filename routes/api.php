@@ -16,7 +16,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::post('/user', [UserController::class, 'registerUser']);
+Route::post('/', [UserController::class, 'registerUser']);
+Route::post('/login',[UserController::class, 'loginUser']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

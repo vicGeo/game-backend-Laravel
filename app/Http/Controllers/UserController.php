@@ -44,47 +44,47 @@ class UserController extends Controller
 
     // //Login
 
-    // public function loginUser(Request $request){
+    public function loginUser(Request $request){
 
-    //     $nickName = $request->input('nickName');
-    //     $password = $request->input('password');
+        $email = $request->input('email');
+        $password = $request->input('password');
 
-    //     try{
+        try{
 
-    //         $validatePlayer = Player::select('password')
-    //         ->where('nickName', 'LIKE', $nickName)
-    //         ->first();
+            $validateUser = User::select('password')
+            ->where('email', 'LIKE', $email)
+            ->first();
 
-    //         if(!$validatePlayer){
-    //             return response()->json([
-    //                 'error'=> "Username o password incorrecto"
-    //             ]);
-    //         }
+            if(!$validateUser){
+                return response()->json([
+                    'error'=> "Email o contraseña incorrecta"
+                ]);
+            }
 
-    //         $hashed = $validatePlayer->password;
-
-
-    //         if(Hash::check($password, $hashed)){
+            $hashed = $validateUser->password;
 
 
-    //             $length = 35;
-    //             $token = bin2hex(random_bytes($length));
+            if(Hash::check($password, $hashed)){
 
 
-    //             User::where('UserName', $userName)
-    //             ->update(['token' => $token]);
+                $length = 35;
+                $token = bin2hex(random_bytes($length));
 
-    //             return User::where('UserName', 'LIKE', $userName)
-    //             ->get();
 
-    //         }else{
-    //             return response()->json([
-    //                 'error' => "Username o password incorrecto"
-    //             ]);
-    //         }
-    //     }catch(QueryException $error){
+                User::where('email', $email)
+                ->update(['token' => $token]);
 
-    //         return response()->$error;
-    //     }
-    // }
+                return User::where('email', 'LIKE', $email)
+                ->get();
+
+            }else{
+                return response()->json([
+                    'error' => "Email o contraseña incorrecta"
+                ]);
+            }
+        }catch(QueryException $error){
+
+            return response()->$error;
+        }
+    }
 }
