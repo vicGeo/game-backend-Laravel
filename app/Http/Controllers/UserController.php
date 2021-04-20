@@ -129,8 +129,7 @@ class UserController extends Controller
         }
     }
 
-    public function destroy(Request $request, $id)
-    {
+    public function destroy(Request $request, $id){
 
         try {
             return User::where('id', '=', $id) -> delete();
@@ -138,6 +137,15 @@ class UserController extends Controller
             return $error;
         }
 
+    }
+
+    public function findUserById(Request $request, $id){
+        
+        try {
+            return User::where('id', '=', $id) -> get();
+        } catch (QueryException $error) {
+            return $error;
+        }
     }
 
 }

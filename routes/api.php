@@ -20,6 +20,7 @@ Route::post('user/', [UserController::class, 'registerUser']);
 Route::post('user/login',[UserController::class, 'loginUser']);
 Route::post('user/logout', [UserController::class, 'logoutUser']);
 Route::get('user/', [UserController::class, 'allUsers']);
+Route::get('user/{id}', [UserController::class, 'findUserById']);
 Route::put('user/{id}',[UserController::class, 'updateUpdate']);
 Route::delete('user/{id}', [UserController::class, 'destroy']);
 
