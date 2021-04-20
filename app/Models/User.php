@@ -20,6 +20,7 @@ class User extends Authenticatable
         'userName',
         'password',
         'email',
+        'steamUsername'
     ];
 
     /**

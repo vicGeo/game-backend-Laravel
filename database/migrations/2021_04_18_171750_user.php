@@ -16,6 +16,7 @@ class User extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table -> string('userName',25) -> unique();
+            $table -> string('steamUsername',25) -> unique();
             $table -> string('password');
             $table -> string('email',50) -> unique();
             $table -> string('token')->nullable();

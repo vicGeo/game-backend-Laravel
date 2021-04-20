@@ -17,6 +17,7 @@ class UserController extends Controller
         $userName = $request -> input('userName');
         $password = $request -> input('password');
         $email = $request -> input('email');
+        $steamUsername = $request -> input('steamUsername');
 
         $password = Hash::make($password);
 
@@ -25,7 +26,8 @@ class UserController extends Controller
             return User::create([
                 'userName' => $userName,
                 'password' => $password,
-                'email' => $email
+                'email' => $email,
+                'steamUsername' => $steamUsername
             ]);
 
         } catch (QueryException $error) {
@@ -115,6 +117,7 @@ class UserController extends Controller
         $userName = $request -> input('userName');
         $password = $request -> input('password');
         $email = $request -> input('email');
+        $steamUsername = $request -> input('steamUsername');
 
         $password = Hash::make($password);
 
@@ -122,7 +125,8 @@ class UserController extends Controller
             return User::where('id', '=', $id)->update([
                 'userName' => $userName, 
                 'password' => $password, 
-                'email' => $email
+                'email' => $email,
+                'steamUsername' => $steamUsername
             ]); 
         } catch(QueryException $error) {
             return $error;
