@@ -21,6 +21,7 @@ Route::post('user/login',[UserController::class, 'loginUser']);
 Route::post('user/logout', [UserController::class, 'logoutUser']);
 Route::get('user/', [UserController::class, 'allUsers']);
 Route::put('user/{id}',[UserController::class, 'updateUpdate']);
+Route::delete('user/{id}', [UserController::class, 'destroy']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

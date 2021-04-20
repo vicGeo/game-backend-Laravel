@@ -128,4 +128,16 @@ class UserController extends Controller
             return $error;
         }
     }
+
+    public function destroy(Request $request, $id)
+    {
+
+        try {
+            return User::where('id', '=', $id) -> delete();
+        } catch (QueryException $error) {
+            return $error;
+        }
+
+    }
+
 }
