@@ -12,7 +12,6 @@ use App\Models\User;
 class UserController extends Controller
 {
 
-    //Registro usuario
     public function registerUser(Request $request) {
 
         $userName = $request -> input('userName');
@@ -41,8 +40,6 @@ class UserController extends Controller
             }
         }
     }
-
-    // //Login
 
     public function loginUser(Request $request){
 
@@ -87,4 +84,20 @@ class UserController extends Controller
             return response()->$error;
         }
     }
+
+    public function logoutUser(Request $request){
+
+        $email = $request->input('email');
+
+        try{
+
+            return User::where('email', '=', $email)
+            ->update(['token' => '']);
+
+        }catch(QueryException $error){
+            return $error;
+        }
+    }
+
+    
 }
