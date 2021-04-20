@@ -20,6 +20,7 @@ Route::post('user/', [UserController::class, 'registerUser']);
 Route::post('user/login',[UserController::class, 'loginUser']);
 Route::post('user/logout', [UserController::class, 'logoutUser']);
 Route::get('user/', [UserController::class, 'allUsers']);
+Route::put('user/{id}',[UserController::class, 'updateUpdate']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

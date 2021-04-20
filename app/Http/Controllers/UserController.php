@@ -108,4 +108,24 @@ class UserController extends Controller
             return $error;
         }
     }
+
+    public function updateUpdate(Request $request, $id){
+
+
+        $userName = $request -> input('userName');
+        $password = $request -> input('password');
+        $email = $request -> input('email');
+
+        $password = Hash::make($password);
+
+        try{
+            return User::where('id', '=', $id)->update([
+                'userName' => $userName, 
+                'password' => $password, 
+                'email' => $email
+            ]); 
+        } catch(QueryException $error) {
+            return $error;
+        }
+    }
 }
