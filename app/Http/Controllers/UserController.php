@@ -92,12 +92,20 @@ class UserController extends Controller
         try{
 
             return User::where('email', '=', $email)
-            ->update(['token' => '']);
+            ->update(['token' => null]);
 
         }catch(QueryException $error){
             return $error;
         }
     }
 
-    
+    public function allUsers(){
+
+        try{
+            return User::all();
+
+        }catch(QueryException $error){
+            return $error;
+        }
+    }
 }

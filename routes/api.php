@@ -16,9 +16,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::post('/', [UserController::class, 'registerUser']);
-Route::post('/login',[UserController::class, 'loginUser']);
-Route::post('/logout', [UserController::class, 'logoutUser']);
+Route::post('user/', [UserController::class, 'registerUser']);
+Route::post('user/login',[UserController::class, 'loginUser']);
+Route::post('user/logout', [UserController::class, 'logoutUser']);
+Route::get('user/', [UserController::class, 'allUsers']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
