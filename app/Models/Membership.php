@@ -10,13 +10,13 @@ class Membership extends Model
     use HasFactory;
     protected $fillable = [
         'lobby_id',
-        'user_id',
+        'userName_id',
     ];
 
-    public function user () {
-        return $this -> hasMany('App\Models\User', 'user_id');
+    public function user() {
+        return $this -> hasMany('App\Models\User', 'userName_id');
     }
-    public function party () {
+    public function lobby() {
         return $this -> belongsTo('App\Models\Lobby', 'lobby_id');
     }
 }
