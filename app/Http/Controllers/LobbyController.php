@@ -65,4 +65,15 @@ class LobbyController extends Controller
             return $error;
         }
     }
+
+    public function destroy(Request $request, $id){
+
+        try {
+            return Lobby::where('id', '=', $id) -> delete();
+        } catch (QueryException $error) {
+            return $error;
+        }
+
+    }
+
 }
