@@ -28,6 +28,6 @@ class Lobby extends Model
 
     public function message(){
 
-        return $this->hasMany('App\Models\Message', 'message_id');
+        return $this->hasMany('App\Models\Message', 'message_id', 'id');
     }
 }

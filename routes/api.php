@@ -34,6 +34,8 @@ Route::delete('game/{id}', [GameController::class, 'deleteGameById']);
 
 Route::post('game/{id}/lobby', [LobbyController::class, 'createLobby']);
 Route::get('game/lobby/{id}', [LobbyController::class, 'LobbiesByGameId']);
+Route::post('/lobby/login', [LobbyController::class, 'login' ]);
+Route::delete('/lobby/logout/{id}', [LobbyController::class, 'logout' ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

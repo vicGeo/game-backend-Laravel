@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Models\Lobby;
+use App\Models\Membership;
 
 class LobbyController extends Controller
 {
@@ -30,6 +31,35 @@ class LobbyController extends Controller
     public function LobbiesByGameId($id){
         try{
             return Lobby::all()->where('game_id', '=', $id);
+
+        }catch(QueryException $error){
+            return $error;
+        }
+    }
+
+    public function login(Request $request){
+
+        $userName_id = $request -> input('userName_id');
+        $lobby_id = $request -> input('lobby_id');
+
+        try{
+            return Membership::create([
+                'userName_id' => $userName_id,
+                'lobby_id' => $lobby_id
+            ]);
+
+        }catch(QueryException $error){
+            return $error;
+        }
+    }
+
+    public function logout(Request $request, $id){
+
+        $member = Membership::find($id);
+
+        try{
+
+            return $member->delete();
 
         }catch(QueryException $error){
             return $error;
