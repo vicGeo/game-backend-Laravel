@@ -13,6 +13,7 @@ class Lobby extends Model
         'name',
         'game_id',
         'owner_id',
+        'message_id'
     ];
 
     public function user(){
@@ -23,5 +24,10 @@ class Lobby extends Model
     public function game(){
 
         return $this->belongsTo('App\Models\Game', 'game_id', 'id');
+    }
+
+    public function message(){
+
+        return $this->hasMany('App\Models\Message', 'message_id');
     }
 }
