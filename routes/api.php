@@ -33,6 +33,7 @@ Route::put('game/{id}', [GameController::class, 'updateGame']);
 Route::delete('game/{id}', [GameController::class, 'deleteGameById']);
 
 Route::post('game/{id}/lobby', [LobbyController::class, 'createLobby']);
+Route::get('game/lobby/{id}', [LobbyController::class, 'LobbiesByGameId']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

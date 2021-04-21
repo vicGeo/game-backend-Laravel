@@ -26,4 +26,13 @@ class LobbyController extends Controller
             return $error;
         }
     }
+
+    public function LobbiesByGameId($id){
+        try{
+            return Lobby::all()->where('game_id', '=', $id);
+
+        }catch(QueryException $error){
+            return $error;
+        }
+    }
 }
