@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\LobbyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::get('game/', [GameController::class, 'allGames']);
 Route::get('game/{id}', [GameController::class, 'searchGameById']);
 Route::put('game/{id}', [GameController::class, 'updateGame']);
 Route::delete('game/{id}', [GameController::class, 'deleteGameById']);
+
+Route::post('game/{id}/lobby', [LobbyController::class, 'createLobby']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

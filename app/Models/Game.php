@@ -15,4 +15,9 @@ class Game extends Model
         'url_game',
         'description'
     ];
+
+    public function lobbies()
+    {
+        return $this->hasMany('App\Models\Lobby','game_id');   
+    }
 }
