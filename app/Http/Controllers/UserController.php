@@ -111,7 +111,7 @@ class UserController extends Controller
         }
     }
 
-    public function updateUpdate(Request $request, $id){
+    public function updateUser(Request $request, $id){
 
 
         $userName = $request -> input('userName');

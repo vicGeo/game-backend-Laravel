@@ -22,10 +22,14 @@ Route::post('user/login',[UserController::class, 'loginUser']);
 Route::post('user/logout', [UserController::class, 'logoutUser']);
 Route::get('user/', [UserController::class, 'allUsers']);
 Route::get('user/{id}', [UserController::class, 'findUserById']);
-Route::put('user/{id}',[UserController::class, 'updateUpdate']);
+Route::put('user/{id}',[UserController::class, 'updateUser']);
 Route::delete('user/{id}', [UserController::class, 'destroy']);
 
 Route::post('game/', [GameController::class, 'addGame']);
+Route::get('game/', [GameController::class, 'allGames']);
+Route::get('game/{id}', [GameController::class, 'searchGameById']);
+Route::put('game/{id}', [GameController::class, 'updateGame']);
+Route::delete('game/{id}', [GameController::class, 'deleteGameById']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
