@@ -33,11 +33,38 @@ class MessageController extends Controller
     
     }
 
-    public function allMessagesByLobbyId($id){
+    public function allMessagesByUserId($id){
         try{
             return Message::all()->where('owner_id', '=', $id);
         }catch(QueryException $error){
             return $error;
         }
     }
+
+    public function deleteMessage($id){
+
+        $message = Message::find($id);
+
+        if (!$message) {
+            return response()->json([
+                'error' => "El mesaje no existe."
+            ]);
+        }
+
+        try {
+            
+            return Message::where('id', '=', $id) -> delete();
+
+        } catch (QueryException $error) {
+            $eCode = $error->errorInfo[1];
+            if ($eCode == 1062) {
+                return response()->json([
+                    'error' => "El mensaje no se pudo eliminar"
+                ]);
+            }
+        }
+        
+    }
+
+    
 }
