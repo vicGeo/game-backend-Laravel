@@ -8,9 +8,8 @@ use Illuminate\Database\QueryException;
 
 class MessageController extends Controller
 {
-    public function createMessage(Request $request, $owner_id){
+    public function createMessage(Request $request, $owner_id, $lobby_id){
         $message = $request->input('message');
-        $lobby_id = $request->input('lobby_id');
     
         try {
     
