@@ -26,8 +26,13 @@ class Lobby extends Model
         return $this->belongsTo('App\Models\Game', 'game_id', 'id');
     }
 
-    public function message(){
+    // public function message(){
 
-        return $this->hasMany('App\Models\Message', 'message_id', 'id');
+    //     return $this->hasMany('App\Models\Message', 'message_id', 'id');
+    // }
+
+    public function memberships()
+    {
+        return $this->hasMany('App\Models\Membership','lobby_id');   
     }
 }
