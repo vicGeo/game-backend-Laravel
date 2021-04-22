@@ -46,6 +46,7 @@ Route::delete('lobby/{id}', [LobbyController::class, 'destroy']);
 Route::get('user/{id}/lobby', [MembershipController::class, 'getLobbyUsers']);
 Route::get('lobbies/{id}/users', [MembershipController::class, 'getUsersInLobby']);
 Route::delete('user/{owner_id}/lobbies/{lobby_id}', [MembershipController::class, 'delete']);
+Route::put('user/{userName_id}/lobbies/{lobby_id}', [MembershipController::class, 'newMembership']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
