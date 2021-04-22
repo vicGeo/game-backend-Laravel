@@ -12,12 +12,12 @@ class Message extends Model
     protected $fillable = [
         'message',
         'lobby_id',
-        'userName_id'
+        'owner_id'
     ];
 
     public function users(){
 
-        return $this->belongsTo('App\Models\User', 'userName_id');
+        return $this->belongsTo('App\Models\User', 'owner_id');
     }
 
     public function lobbies(){
