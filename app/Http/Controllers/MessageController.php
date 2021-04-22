@@ -33,4 +33,12 @@ class MessageController extends Controller
       }
     
     }
+
+    public function allMessagesByLobbyId($id){
+        try{
+            return Message::all()->where('owner_id', '=', $id);
+        }catch(QueryException $error){
+            return $error;
+        }
+    }
 }

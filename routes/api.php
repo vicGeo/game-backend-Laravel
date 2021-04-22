@@ -53,3 +53,4 @@ Route::delete('user/{owner_id}/lobbies/{lobby_id}', [MembershipController::class
 Route::put('user/{userName_id}/lobbies/{lobby_id}', [MembershipController::class, 'newMembership']);
 
 Route::post('user/{id}/message', [MessageController::class, 'createMessage']);
+Route::get('message/{id}', [MessageController::class, 'allMessagesByLobbyId']);
