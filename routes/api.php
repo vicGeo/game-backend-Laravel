@@ -43,8 +43,8 @@ Route::get('game/lobby/{id}', [LobbyController::class, 'LobbiesByGameId']);
 Route::delete('lobby/logout/{id}', [LobbyController::class, 'logout']);
 Route::delete('lobby/{id}', [LobbyController::class, 'destroy']);
 
-Route::get('user/{id}/lobby', [MembershipController::class, 'getLobbyPlayers']);
-Route::get('lobbies/{id}/users', [MembershipController::class, 'getPlayersInLobby']);
+Route::get('user/{id}/lobby', [MembershipController::class, 'getLobbyUsers']);
+Route::get('lobbies/{id}/users', [MembershipController::class, 'getUsersInLobby']);
 Route::delete('user/{owner_id}/lobbies/{lobby_id}', [MembershipController::class, 'delete']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

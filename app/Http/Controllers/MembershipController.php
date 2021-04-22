@@ -10,7 +10,7 @@ use App\Models\Membership;
 class MembershipController extends Controller
 {
     //
-    public function getLobbyPlayers(Request $request, $id)
+    public function getLobbyUsers(Request $request, $id)
     {
         $user = $request->user();
 
@@ -30,7 +30,7 @@ class MembershipController extends Controller
         }
     }
 
-    public function getPlayersInLobby(Request $request, $id)
+    public function getUsersInLobby(Request $request, $id)
     {
         try {
             $bymembership = Membership::where('lobby_id',$id)
