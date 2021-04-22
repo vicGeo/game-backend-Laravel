@@ -16,8 +16,8 @@ class Membership extends Migration
         Schema::create('memberships', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('userName_id');
-            $table->foreign('userName_id', 'fk_membership_users')
+            $table->unsignedBigInteger('owner_id');
+            $table->foreign('owner_id', 'fk_membership_users')
             ->on('users')
             ->references('id')
             ->onDelete('restrict');
