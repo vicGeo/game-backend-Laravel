@@ -19,7 +19,7 @@ class User extends Migration
             $table -> string('steamUsername',25) -> unique();
             $table -> string('password');
             $table -> string('email',50) -> unique();
-            $table -> string('token')->nullable();
+            $table -> string('api_token')->nullable();
             $table->timestamps();
         });
 

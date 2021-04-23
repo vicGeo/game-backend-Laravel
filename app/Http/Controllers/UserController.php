@@ -71,7 +71,7 @@ class UserController extends Controller
 
 
                 User::where('email', $email)
-                ->update(['token' => $token]);
+                ->update(['api_token' => $token]);
 
                 return User::where('email', 'LIKE', $email)
                 ->get();
