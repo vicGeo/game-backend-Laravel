@@ -17,9 +17,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'userName',
         'password',
+        'email',
+        'steamUsername'
     ];
 
     /**
@@ -40,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function lobbies(){
+
+    return $this->hasMany('App\Models\Lobby', 'owner_id');
+    }
+
+
+    // public function messages() {
+    //     return $this->hasMany('App\Models\Message', 'owner_id', 'id' );
+    // }
 }
